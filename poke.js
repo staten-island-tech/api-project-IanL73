@@ -178,3 +178,19 @@ for (const publisher in publishers){
 
 
 videoGames.filter((game)=>game.ratings.metacritic > 95).forEach((game)=>document.querySelector(".games").insertAdjacentHTML("afterbegin",`<h2>${game.title}</h2>`))
+/*
+          /\
+        /   \
+      /      \
+    /         \
+  /            \
+/____      _____\
+  |         |
+  | ()  ()  |
+  |         |
+ /| | | | | \
+| | | | | | |
+| | | | | | |
+| | | | | | |
+|   |   |   |
+*/
