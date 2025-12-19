@@ -1,4 +1,4 @@
-const videoGames = [
+/* const videoGames = [
   {
     title: "The Legend of Zelda: Breath of the Wild",
     studio: "Nintendo",
@@ -173,11 +173,13 @@ for (const publisher in publishers){
         <h3 class="amount">${publishers[publisher]}</h3>
         </div>
         `);
-}
+} */
 
+const garchomp = await fetch("https://pokeapi.co/api/v2/pokemon/shedinja")
+const garchompZ = await garchomp.json()
+console.log(garchompZ.stats[0].base_stat)
 
-
-videoGames.filter((game)=>game.ratings.metacritic > 95).forEach((game)=>document.querySelector(".games").insertAdjacentHTML("afterbegin",`<h2>${game.title}</h2>`))
+//videoGames.filter((game)=>game.ratings.metacritic > 95).forEach((game)=>document.querySelector(".games").insertAdjacentHTML("afterbegin",`<h2>${game.title}</h2>`))
 /*
           /\
         /   \
