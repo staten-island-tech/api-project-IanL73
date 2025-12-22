@@ -175,9 +175,26 @@ for (const publisher in publishers){
         `);
 } */
 
-const garchomp = await fetch("https://pokeapi.co/api/v2/pokemon/shedinja")
-const garchompZ = await garchomp.json()
-console.log(garchompZ.stats[0].base_stat)
+try {
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon/shedinja")
+  if (response.status !== 200){
+    throw new Error("Failed to fetch data :(")
+  }
+  else {
+    const data = await response.json()
+    console.log(data.stats[0].stat.name)
+    console.log(data.stats[0].base_stat)
+    const container = document.querySelector(".container");
+    container.insertAdjacentHTML(
+        "beforeend",
+        `<h2>${data.stats[0].stat.name}</h2>
+        <h2>${data.stats[0].base_stat}</h2>`)
+  }
+} catch (error) {
+  console.log("error :(")
+}
+
+
 
 //videoGames.filter((game)=>game.ratings.metacritic > 95).forEach((game)=>document.querySelector(".games").insertAdjacentHTML("afterbegin",`<h2>${game.title}</h2>`))
 /*
