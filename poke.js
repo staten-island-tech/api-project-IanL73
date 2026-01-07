@@ -176,19 +176,15 @@ for (const publisher in publishers){
 } */
 
 try {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon/shedinja")
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
   if (response.status !== 200){
     throw new Error("Failed to fetch data :(")
   }
   else {
     const data = await response.json()
-    console.log(data.stats[0].stat.name)
-    console.log(data.stats[0].base_stat)
-    const container = document.querySelector(".container");
-    container.insertAdjacentHTML(
-        "beforeend",
-        `<h2>${data.stats[0].stat.name}</h2>
-        <h2>${data.stats[0].base_stat}</h2>`)
+    let responsenumber = 1025
+    const pokemon = await fetch(data.results[responsenumber].url)
+    console.log(pokemon.forms[0].name)
   }
 } catch (error) {
   console.log("error :(")
