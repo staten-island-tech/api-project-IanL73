@@ -8,7 +8,6 @@ if (EveryPokemonEverResponse.status != 200) {
   throw new Error("failed to fetch data :(")
 }
 else {
-
   const EveryPokemonEver = await EveryPokemonEverResponse.json()  // Get all the data we need
   let response1number = getRandomInt(1350)
   const response1 = await fetch(EveryPokemonEver.results[response1number].url)
@@ -21,10 +20,7 @@ else {
   const card2 = document.querySelector(".card2");
   if (response1.status !== 200 & response2.status !== 200){
     throw new Error("Failed to fetch data :(")
-  }
-
-  else {
-    while(true) {
+  }else{
     console.log(response1)
     console.log(response2)
     const data1 = await response1.json()
@@ -65,16 +61,22 @@ else {
         `
     )
     document.querySelector(".card2").addEventListener("click", () => {
-    if (data1.stats[1].base_stat < data2.stats[1].base_stat) {
-      document.querySelector(".outcome").innerHTML = ""
-      document.querySelector(".outcome").insertAdjacentHTML(
-        "afterbegin",
-        `<h2>CORRECT</h2>`)
-    }else{
-      document.querySelector(".outcome").insertAdjacentHTML(
-        "afterbegin",
-        `<h2>WRONG</h2>`)
+      if (data1.stats[1].base_stat < data2.stats[1].base_stat) {
+        document.querySelector(".outcome").innerHTML = ""
+        document.querySelector(".outcome").insertAdjacentHTML(
+          "afterbegin",
+          `<h2>CORRECT</h2>`)
+      }else{
+        document.querySelector(".outcome").insertAdjacentHTML(
+          "afterbegin",
+          `<h2>WRONG</h2>`)
+      let response1number = getRandomInt(1350)
+      let response2number = getRandomInt(1350)
+      while (response1number === response2number) {
+        let response2number = getRandomInt(1350)
+      }
     }
-    }}
-  }
+    
+    })
+    }
 }
