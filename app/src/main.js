@@ -75,6 +75,7 @@ else {
       while (response1number === response2number) {
         let response2number = getRandomInt(1350)
       }
+      const
     }
     
     })
