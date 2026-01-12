@@ -1,5 +1,11 @@
 import './style.css'
 
+async function getPokemon(response1,response2) {
+  const response1 = await fetch(EveryPokemonEver.results[response1number].url)
+  const resposne2 = await fetch(EveryPokemonEver.results[response2number].url)
+  
+
+}
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -70,12 +76,14 @@ else {
         document.querySelector(".outcome").insertAdjacentHTML(
           "afterbegin",
           `<h2>WRONG</h2>`)
-      let response1number = getRandomInt(1350)
-      let response2number = getRandomInt(1350)
-      while (response1number === response2number) {
+        let response1number = getRandomInt(1350)
         let response2number = getRandomInt(1350)
-      }
-      const
+        while (response1number === response2number) {
+          let response2number = getRandomInt(1350)
+        }
+        getPokemon()
+        console.log(`shit ${response1}`)
+        console.log(`piss ${response2}`)
     }
     
     })
